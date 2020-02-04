@@ -1,4 +1,4 @@
-import { INITIALIZE_FLASHCARDS, SHUFFLE_FLASHCARDS, NEXT_FLASHCARD, FLIP_FLASHCARD } from './actions';
+import { INITIALIZE_FLASHCARDS, SHUFFLE_FLASHCARDS, NEXT_FLASHCARD, PREV_FLASHCARD, FLIP_FLASHCARD } from './actions';
 
 const INITIAL_STATE = {
     flashcards: null,
@@ -24,6 +24,16 @@ const reducer = (state=INITIAL_STATE, action) => {
                 shuffledFlashcards: action.payload,
                 curIndex: 0,
                 curFlashcard: state.flashcards.get(action.payload[0])
+            };
+
+        case PREV_FLASHCARD:
+            const prevIndex = state.curIndex - 1;
+            const prevCard = state.flashcards.get(state.shuffledFlashcards[prevIndex]);
+            return {
+                ...state,
+                curIndex: prevIndex,
+                curFlashcard: prevCard,
+                isFlipped: false,
             };
 
         case NEXT_FLASHCARD:

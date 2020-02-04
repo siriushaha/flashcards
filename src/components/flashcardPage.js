@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-import { nextFlashcard } from '../store/actions';
+import { prevFlashcard, nextFlashcard } from '../store/actions';
 import Flashcard from './flashcard';
 
 const FlashcardPage = () => {
@@ -13,6 +13,11 @@ const FlashcardPage = () => {
   const total = useSelector(state => state.total);
   const curFlashcard = useSelector(state => state.curFlashcard);
   const dispatch = useDispatch();
+
+  const handlePrev = (e) => {
+    e.preventDefault();
+    dispatch(prevFlashcard());
+  };
 
   const handleNext = (e) => {
     e.preventDefault();
@@ -22,12 +27,22 @@ const FlashcardPage = () => {
   return (
     <>
       <Container maxWidth="sm">
-        <Grid container direction="column" spacing={2}>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
             <Flashcard flashcard={curFlashcard} index={curIndex + 1}/>
           </Grid>
-          { curIndex < total - 1 &&
-            <Grid item xs={12}>
+          <Grid item xs={6}>
+            <Button
+                variant="contained"
+                disabled={curIndex < 1}
+                onClick={handlePrev}
+                fullWidth
+                color="primary"
+            >
+              Prev
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
               <Button
                   variant="contained"
                   disabled={curIndex === total - 1}
@@ -38,7 +53,6 @@ const FlashcardPage = () => {
                 Next
               </Button>
             </Grid>
-          }
         </Grid>
       </Container>
     </>
