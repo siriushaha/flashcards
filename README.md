@@ -53,7 +53,7 @@ You will also see any lint errors in the console.
 #### `npm start:server` / `yarn start:server`
 
 Runs the local API server in development mode.<br>
-The server is available on port 4000, e.g. [http://localhost:4000/api/books](http://localhost:4000/api/books).
+The server is available on port 4000, e.g. [http://localhost:4000/api/flashcards](http://localhost:4000/api/flashcards).
 
 You will need to restart the server manually if you edit the server code.
 
