@@ -36,7 +36,7 @@ In the project directory, you can run the following scripts:
 #### `npm start` / `yarn start`
 
 Runs the app and the local API server in development mode, using the two commands described below.<br>
-Open [http://localhost:3000](http://localhost:3000) to load the app in the browser. The server is available on port 4000, e.g. [http://localhost:4000/api/books](http://localhost:4000/api/books).
+Open [http://localhost:3000](http://localhost:3000) to load the app in the browser. The server is available on port 4000, e.g. [http://localhost:4000/api/flashcards](http://localhost:4000/api/flashcards).
 
 The page will reload if you make edits to the client.<br>
 You will also see any lint errors in the console.<br>
