@@ -27,6 +27,7 @@ application.
 
 ### Guidelines and Hints
 
+#### Install node v8.17.0 or above
 
 ### Available Scripts
 
