@@ -1,4 +1,4 @@
-import { INITIALIZE_FLASHCARDS, SHUFFLE_FLASHCARDS, NEXT_FLASHCARD} from './actions';
+import { INITIALIZE_FLASHCARDS, SHUFFLE_FLASHCARDS, NEXT_FLASHCARD, FLIP_FLASHCARD } from './actions';
 
 const INITIAL_STATE = {
     flashcards: null,
@@ -6,6 +6,7 @@ const INITIAL_STATE = {
     shuffledFlashcards: [],
     curFlashcard: null,
     curIndex: 0,
+    isFlipped: false,
 };
 
 const reducer = (state=INITIAL_STATE, action) => {
@@ -32,6 +33,13 @@ const reducer = (state=INITIAL_STATE, action) => {
                 ...state,
                 curIndex: nextIndex,
                 curFlashcard: nextCard,
+                isFlipped: false,
+            };
+
+        case FLIP_FLASHCARD:
+            return {
+                ...state,
+                isFlipped: !state.isFlipped,
             };
 
         default:

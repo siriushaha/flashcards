@@ -1,15 +1,20 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import ReactCardFlip from 'react-card-flip';
 
+import { flipFlashcard } from '../store/actions';
 import Question from './question';
 import Answer from './answer';
 
 const Flashcard = ({ flashcard, index }) => {
-    const [isFlipped, setIsFlipped] = useState( false);
+    const isFlipped = useSelector(state => state.isFlipped);
+    const dispatch = useDispatch();
+
     const handleFlip = useCallback((e) => {
         e.preventDefault();
-        setIsFlipped(!isFlipped);
-    }, [isFlipped, setIsFlipped]);
+        dispatch(flipFlashcard());
+    }, [dispatch]);
 
     return (
         <ReactCardFlip
