@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 const Layout = memo((props) => {
   const dispatch = useDispatch();
   const flashcards = useSelector(state => state.flashcards);
+  const total = useSelector(state => state.total);
   const handleShuffleFlashcards = () => {
     dispatch(shuffleFlashcards(flashcards));
   };
@@ -20,7 +21,7 @@ const Layout = memo((props) => {
       >
         <AppBar color="primary" position="static" style={{height: 64}}>
           <Toolbar style={{height: 64}}>
-            <Typography color="inherit" style={{flexGrow: 1}}>FLASHCARDS</Typography>
+            <Typography color="inherit" style={{flexGrow: 1}}>FLASHCARDS (Total: {total} cards)</Typography>
             <Button color='inherit' onClick={handleShuffleFlashcards}>Shuffle</Button>
           </Toolbar>
         </AppBar>
