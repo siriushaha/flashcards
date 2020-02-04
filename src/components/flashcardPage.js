@@ -26,17 +26,19 @@ const FlashcardPage = () => {
           <Grid item xs={12}>
             <Flashcard flashcard={curFlashcard} index={curIndex + 1}/>
           </Grid>
-          <Grid item xs={12}>
-            <Button
-                variant="contained"
-                disabled={curIndex === total - 1}
-                onClick={handleNext}
-                fullWidth
-                color="primary"
-            >
-              Next
-            </Button>
-          </Grid>
+          { curIndex < total - 1 &&
+            <Grid item xs={12}>
+              <Button
+                  variant="contained"
+                  disabled={curIndex === total - 1}
+                  onClick={handleNext}
+                  fullWidth
+                  color="primary"
+              >
+                Next
+              </Button>
+            </Grid>
+          }
         </Grid>
       </Container>
     </>
