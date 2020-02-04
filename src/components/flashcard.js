@@ -4,7 +4,7 @@ import ReactCardFlip from 'react-card-flip';
 import Question from './question';
 import Answer from './answer';
 
-const Flashcard = ({ flashcard }) => {
+const Flashcard = ({ flashcard, index }) => {
     const [isFlipped, setIsFlipped] = useState( false);
     const handleFlip = useCallback((e) => {
         e.preventDefault();
@@ -16,8 +16,8 @@ const Flashcard = ({ flashcard }) => {
             isFlipped={isFlipped}
             flipDirection="horizontal"
         >
-         <Question question={flashcard.question} handleFlip={handleFlip} />
-         <Answer answer={flashcard.answer} handleFlip={handleFlip} />
+         <Question index={index} question={flashcard.question} handleFlip={handleFlip} />
+         <Answer index={index} answer={flashcard.answer} handleFlip={handleFlip} />
         </ReactCardFlip>
     );
 };

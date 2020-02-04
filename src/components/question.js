@@ -2,10 +2,11 @@ import React from 'react';
 
 import FlippedCard from './flippedCard';
 
-const Question = ({ question, handleFlip}) => {
+const Question = ({ index, question, handleFlip}) => {
+    const title = `Question #${index}`;
     return (
         <FlippedCard
-            title='Question'
+            title={title}
             description={question}
             button='Answer'
             handleFlipCard={handleFlip}

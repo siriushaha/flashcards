@@ -24,7 +24,7 @@ const FlashcardPage = () => {
       <Container maxWidth="sm">
         <Grid container direction="column" spacing={2}>
           <Grid item xs={12}>
-            <Flashcard flashcard={curFlashcard} />
+            <Flashcard flashcard={curFlashcard} index={curIndex + 1}/>
           </Grid>
           <Grid item xs={12}>
             <Button
